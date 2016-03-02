@@ -1,0 +1,90 @@
+# Blog info linxianlong
+blog_name: Longlog
+slogan: There is no fatal here.
+
+# Set avatar (Absolute url and relative url)
+avatar: /images/avatar.jpg
+
+# Set favicon
+favicon: /favicon.ico
+
+# For seo
+keywords: PHP,前端开发,JavaScript
+
+init_page_content: POST  # HOME_NAV | POST
+
+home_nav:
+  - name: Blog
+    url: /archives
+  - name: Github
+    url: https://github.com/apeipo
+    target: _blank
+
+# config page nav
+page_nav:
+  - 博客: /archives/
+  - 分类: /categories/
+  - 标签: /tags/
+  - 友链: /link/
+  - 关于: /about/
+  - RSS: /atom.xml
+
+page_nav_style: ROUND_RECT  # CIRCLE|ROUND_RECT
+
+# 面包屑
+breadcrumb:
+  isShow: true # true|fase
+
+# 盒子
+toolbox:
+  isShow: true # true|fase
+
+post:
+  header_align: LEFT # LEFT|CENTER
+  showToc: true # true|false
+
+link:
+  - name: Me
+    info: Linxianlong
+    url: http://longlog.me/
+    avatar: https://avatars0.githubusercontent.com/u/6147812?v=3&s=460
+  - name: forsigner
+    info: theme author
+    url: http://forsigner.com/
+    avatar: https://avatars0.githubusercontent.com/u/2668081?v=3&s=460
+
+about:
+  - type: me
+    icon: icon-user
+    text_value:
+    - "测试开发"
+    - "2012.7 - 2015.3 百度"
+    - "Now In 百度"
+    - "PHP / JavaScript."
+  - type: Github
+    icon: icon-github
+    text_key: Github
+    text_value: "@apeipo"
+    text_value_url: https://github.com/apeipo
+  - type: weibo
+    text_key: 微博
+    text_value: "@不鱼"
+    text_value_url: http://weibo.com/u/2349219707
+  - type: mail
+    text_key: Gmail
+    text_value: "apeipo@gmail.com"
+  - type: location
+    icon: icon-location
+    text_value: 北京
+
+# Stats
+#google_analytics:
+#baidu_analytics: 57e94d016e201fba3603a8a2b0263af0
+
+# Comment service
+disqus_shortname: apeipo
+# duoshuo_shortname: forsigner
+
+# Custom CSS style
+# personal_style: /css/forsigner.css
+
