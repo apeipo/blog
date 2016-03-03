@@ -3,7 +3,8 @@ blog_name: Longlog
 slogan: There is no fatal here.
 
 # Set avatar (Absolute url and relative url)
-avatar: /images/avatar.jpg
+#avatar: /images/avatar.jpg
+avatar: /images/bayern.jpg
 
 # Set favicon
 favicon: /favicon.ico
