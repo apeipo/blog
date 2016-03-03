@@ -22,12 +22,12 @@ home_nav:
 
 # config page nav
 page_nav:
-  - 博客: /archives/
+  - 首页: /archives/
   - 分类: /categories/
   - 标签: /tags/
   - 友链: /link/
   - 关于: /about/
-  - RSS: /atom.xml
+# - RSS: /atom.xml
 
 page_nav_style: CIRCLE  # CIRCLE|ROUND_RECT
 

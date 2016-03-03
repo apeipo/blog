@@ -1191,8 +1191,35 @@ table {
   .toolbox .list-toolbox {
     position: absolute;
     top: -17px;
-    left: 46px;
-    width: 500px; }
+    left: 0px;
+    width: 500px;
+    display: block; }
+    .toolbox .list-toolbox li a {
+      animation-duration: .8s;
+      animation-fill-mode: both; }
+    .toolbox .list-toolbox li:nth-child(1) a {
+      animation-name: fadeIn; }
+    .toolbox .list-toolbox li:nth-child(2) a {
+      animation-name: fadeIn;
+      animation-delay: .1s; }
+    .toolbox .list-toolbox li:nth-child(3) a {
+      animation-name: fadeIn;
+      animation-delay: .2s; }
+    .toolbox .list-toolbox li:nth-child(4) a {
+      animation-name: fadeIn;
+      animation-delay: .3s; }
+    .toolbox .list-toolbox li:nth-child(5) a {
+      animation-name: fadeIn;
+      animation-delay: .4s; }
+    .toolbox .list-toolbox li:nth-child(6) a {
+      animation-name: fadeIn;
+      animation-delay: .5s; }
+    .toolbox .list-toolbox li:nth-child(7) a {
+      animation-name: fadeIn;
+      animation-delay: .6s; }
+    .toolbox .list-toolbox li:nth-child(8) a {
+      animation-name: fadeIn;
+      animation-delay: .7s; }
     .toolbox .list-toolbox .item-toolbox {
       display: inline-block; }
       .toolbox .list-toolbox .item-toolbox a {
