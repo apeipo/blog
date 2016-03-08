@@ -12,3 +12,51 @@
     </ul>
   </div>
 <% } %>
+<% if(theme.toolbox && theme.toolbox.verticalBoxShow == true) { %>
+  <!--垂直导航-->
+  <div class="toolbox tool-vertical" id="tool-vertical">
+    <ul class="list-toolbox list-vertical">
+      <% theme.page_nav.forEach(function(item, i){ %>
+        <% for(var j in item) { %>
+          <li class="item-toolbox">
+            <a class="CIRCLE VERTICAL" href="<%= item[j] %>"><%= j %></a>
+          </li>
+        <%} %>
+      <% }) %>
+    </ul>
+  </div>
+  <script type="text/javascript">
+	function getStyle(obj)  
+	{  
+	    if(obj.currentStyle===undefined)  
+	    {  
+	        return getComputedStyle(obj);  
+	    }else{  
+	        return obj.currentStyle;//IE  
+	    }  
+	}  
+  	window.onscroll = function() {
+		var scrollTop 	= window.pageYOffset|| document.documentElement.scrollTop || document.body.scrollTop;
+		var topBox		= document.getElementsByClassName("toolbox")[0];
+		var box 		= document.getElementById("tool-vertical");
+		var display 	= getStyle(box).display;
+		var link = document.getElementsByClassName("CIRCLE VERTICAL");
+		if (scrollTop >= 60 && display == "none") {
+			box.style.display 		= "block";
+			topBox.style.display 	= "none";
+			for(var i = 0; i < link.length; i++) {
+				link[i].setAttribute("class", "CIRCLE VERTICAL");
+			}
+
+		}
+		if (scrollTop < 60 && display == "block") {
+			topBox.style.display 	= "block";
+			setTimeout("document.getElementById('tool-vertical').style.display = 'none'", 600);
+			for(var i = 0; i < link.length; i++) {
+				link[i].setAttribute("class", link[i].className + " a-vertical");
+			}
+			//box.style.display = "none";
+		}
+	}
+  </script>
+<% } %>

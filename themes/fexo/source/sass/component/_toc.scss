@@ -1,8 +1,8 @@
 .toc-article {
-  position: absolute;
+  position: fixed;
   left: 50%;
   margin-left: $post-width / 2 + 20px;
-  top: 430px;
+  top: 120px;
   font-size: 13px;
 
   ol {

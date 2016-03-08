@@ -39,6 +39,7 @@ breadcrumb:
 # 盒子
 toolbox:
   isShow: true # true|fase
+  verticalBoxShow: true
 
 post:
   header_align: LEFT # LEFT|CENTER

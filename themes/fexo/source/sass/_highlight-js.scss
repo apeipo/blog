@@ -12,11 +12,13 @@ figure.highlight {
   color: #f8f8f2;
   font-size: 13px;
   border-radius: 0px;
-  padding: 0.5em;
-  background: #23241f; 
+  padding: 5px;
+  border: 1px solid #F2F2F2;
+  -webkit-box-shadow: #DEDEDE 0 0 5px;
 //  background-color: #f7f7f7;
 }
 .highlight table {
+  background: #23241f; 
   width: 100%;
   margin: 0;
   border: 0;
@@ -26,6 +28,7 @@ figure.highlight {
 //    color: #f8f8f2;
     font-size: 13px;
     padding: 0;
+	padding-left: 5px;
   }
 }
 

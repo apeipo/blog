@@ -57,6 +57,11 @@
     opacity: 0; }
   to {
     opacity: 1; } }
+@keyframes fadeOut {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
 @font-face {
   font-family: 'fontello';
   src: url("/fonts/fontello.eot?87611695");
@@ -586,10 +591,12 @@ figure.highlight {
   color: #f8f8f2;
   font-size: 13px;
   border-radius: 0px;
-  padding: 0.5em;
-  background: #23241f; }
+  padding: 5px;
+  border: 1px solid #F2F2F2;
+  -webkit-box-shadow: #DEDEDE 0 0 5px; }
 
 .highlight table {
+  background: #23241f;
   width: 100%;
   margin: 0;
   border: 0; }
@@ -597,7 +604,8 @@ figure.highlight {
   .highlight table th {
     border: 0;
     font-size: 13px;
-    padding: 0; }
+    padding: 0;
+    padding-left: 5px; }
 
 /*
 
@@ -727,7 +735,9 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
   color: #555; }
 .article-content img {
   width: 100%;
-  height: auto; }
+  height: auto;
+  border: 1px solid #F2F2F2;
+  -webkit-box-shadow: 0px 0px 5px #DDD; }
 .article-content ul li {
   position: relative;
   padding-left: 14px; }
@@ -1177,6 +1187,33 @@ table {
     .toolbox .list-toolbox li:nth-child(8) a {
       animation-name: fadeIn;
       animation-delay: .7s; }
+    .toolbox .list-toolbox li:nth-child(1) a.a-vertical {
+      animation-name: fadeOut; }
+    .toolbox .list-toolbox li:nth-child(2) a.a-vertical {
+      animation-name: fadeOut;
+      animation-delay: .1s; }
+    .toolbox .list-toolbox li:nth-child(3) a.a-vertical {
+      animation-name: fadeOut;
+      animation-delay: .2s; }
+    .toolbox .list-toolbox li:nth-child(4) a.a-vertical {
+      animation-name: fadeOut;
+      animation-delay: .3s; }
+    .toolbox .list-toolbox li:nth-child(5) a.a-vertical {
+      animation-name: fadeOut;
+      animation-delay: .4s; }
+    .toolbox .list-toolbox li:nth-child(6) a.a-vertical {
+      animation-name: fadeOut;
+      animation-delay: .5s; }
+    .toolbox .list-toolbox li:nth-child(7) a.a-vertical {
+      animation-name: fadeOut;
+      animation-delay: .6s; }
+    .toolbox .list-toolbox li:nth-child(8) a.a-vertical {
+      animation-name: fadeOut;
+      animation-delay: .7s; }
+    .toolbox .list-toolbox.list-vertical {
+      width: 40px;
+      left: -20px;
+      top: 0px; }
     .toolbox .list-toolbox .item-toolbox {
       display: inline-block; }
       .toolbox .list-toolbox .item-toolbox a {
@@ -1191,12 +1228,22 @@ table {
         height: 40px;
         border-radius: 20px;
         transition-propety: background-color; }
+        .toolbox .list-toolbox .item-toolbox a.VERTICAL {
+          margin-bottom: 10px; }
         .toolbox .list-toolbox .item-toolbox a.CIRCLE {
           width: 40px; }
         .toolbox .list-toolbox .item-toolbox a.ROUND_RECT {
           padding: 0 20px; }
         .toolbox .list-toolbox .item-toolbox a:hover {
           background: #dfdfdf; }
+  .toolbox.tool-vertical {
+    height: 20px;
+    position: fixed;
+    left: 150px;
+    top: 0px;
+    display: none;
+    border-radius: 0px;
+    border-left: 4px solid #eeeeee; }
 
 .tag-box {
   position: relative;
@@ -1269,10 +1316,10 @@ table {
         font-weight: bold; }
 
 .toc-article {
-  position: absolute;
+  position: fixed;
   left: 50%;
   margin-left: 400px;
-  top: 430px;
+  top: 120px;
   font-size: 13px; }
   .toc-article ol {
     line-height: 1.8em;

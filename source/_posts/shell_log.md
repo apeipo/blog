@@ -1,5 +1,5 @@
 ---
-title: Shell从一段中筛选去两个字段的值
+title: Shell从一段日志中取出两个字段的值
 date: 2016-03-03 20:15:48
 tags: [Shell]
 category: Linux

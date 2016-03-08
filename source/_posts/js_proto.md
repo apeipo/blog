@@ -1,6 +1,6 @@
 ---
 title: js中的__proto__和prototype
-date: 2016-03-01 20:01:22
+date: 2015-12-30 20:01:22
 tags: [Javascript]
 category: 前端
 ---

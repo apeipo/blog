@@ -60,6 +60,11 @@ time_format: HH:mm:ss
 per_page: 10
 pagination_dir: page
 
+# minifier
+css_minifier:
+  enable: true
+js_minifier:
+  enable: true
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
