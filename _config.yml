@@ -65,6 +65,8 @@ css_minifier:
   enable: true
 js_minifier:
   enable: true
+#image_minifier:
+#  enable: false
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
