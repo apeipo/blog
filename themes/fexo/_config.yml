@@ -60,8 +60,8 @@ about:
     icon: icon-user
     text_value:
     - "测试开发"
-    - "2012.7 - 2015.3 百度"
-    - "Now In 百度"
+    - "2012.7 - 2015.3 In 百度"
+    - "2015.4 - ~ In 滴滴"
     - "PHP / JavaScript."
   - type: Github
     icon: icon-github

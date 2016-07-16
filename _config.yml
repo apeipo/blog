@@ -73,7 +73,6 @@ js_minifier:
 #theme: landscape
 theme: fexo
 
-# Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
