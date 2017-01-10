@@ -1,9 +1,10 @@
 ---
 title: gulp重命名和替换js文件
-date: 2017-01-09 22:23:22
+date: 2017-01-09 22:42:22
 tags: [Javascript]
 category: 前端
 ---
+
 内部开发的平台出现问题，服务端修改了JS文件，但因为用户浏览器有缓存，导致使用时出现问题，有时候强刷也没有用。而页面引用的js文件比较多，也不能全文件都不缓存。
 比较常用的解决方案是：
 > 1. 在开发环境修改js文件src.js
@@ -12,7 +13,7 @@ category: 前端
 
 使用gulp可以很简单的实现上诉步骤。
 
-##安装gulp相关插件
+## 安装gulp相关插件
 
 ```sh
 #安装gulp
@@ -25,7 +26,7 @@ npm install gulp-rev
 npm install gulp-rev-collector
 ```
 
-##在根目录下新建gulp脚本gulpfile.js
+## 在根目录下新建gulp脚本gulpfile.js
 
 ```js
 var gulp         = require('gulp');
@@ -100,14 +101,24 @@ public/dist/
 <script type="text/javascript" src="/dist/js/show-create-10239cd469.js"></script>
 ```
 
-##注意事项：
-###1.gulp的任务执行顺序
+## 注意事项：
+### 1.gulp的任务执行顺序
 修改了js文件，执行gulp后发现，`rev-manifest.json`生成了，但是页面中替换的结果还是上一次的。
 这个问题是因为**gulp的task执行是异步的**，在执行rev这个任务时，jsrename这个任务还没完成，还没有更新json文件，导致rev任务执行完成后结果没有变化。
 解决方案就是加入**rev任务对jsrename的依赖**（gulp.task方法的第二个参数），这样这两个任务就会顺序执行。
 
-###2.文件路径的替换
+### 2.文件路径的替换
 在renamejs这个task中，因为加了`{base : "public"}`这个配置，在生成json文件时，文件名都是带着路径的，如`js/main.js`。
 此时要注意，如果你页面中的js引用url是`/js/main.js`，而你要替换成`/dist/js/main.sh`。在revCollector中dirReplacements应该配置成`'/': '/dist',`(如上gulpfile.js)。这里猜测是因为revCollector中将json中的key整体作为文件名，页面中应用的src去掉这部分文件名后其余部分作为路径。
+## 其他常用的gulp插件
+
+```js
+"gulp-concat"       //文件合并
+"gulp-jshint",      //js文件检查  
+"gulp-minify-css",  //css文件压缩
+"gulp-uglify",      //js文件压缩
+"gulp-imagemin",    //图片压缩
+"gulp-rename",      //文件重命名
+```
 
 
