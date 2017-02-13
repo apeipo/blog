@@ -31,8 +31,8 @@
     }
   }
   strong {
-    font-weight: normal;
-    color: $title-color;
+    font-weight: 500;
+    color: $strong-color;
   }
   p {
     font-size: $article-font-size;
@@ -44,6 +44,9 @@
   ul {
     font-size: $article-font-size;
     color: $article-color;
+    li {
+        list-style : decimal;
+    }
   }
   img {
     width: 100%;
