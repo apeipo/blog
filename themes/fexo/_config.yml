@@ -60,8 +60,8 @@ about:
     icon: icon-user
     text_value:
     - "测试开发"
-    - "2012.7 - 2015.3 In 百度"
-    - "2015.4 - ~ In 滴滴"
+    - "2012.7 - 2015.3 @百度"
+    - "2015.4 - Now    @滴滴"
     - "PHP / JavaScript."
   - type: Github
     icon: icon-github
@@ -81,7 +81,7 @@ about:
 
 # Stats
 #google_analytics:
-baidu_analytics: 52d807f92bd70c2f8b6dfdc09f332b8b
+baidu_analytics: bec693dc99391bbe29dd7310e3fff81a
 
 # Comment service
 disqus_shortname: apeipo
