@@ -1,0 +1,25 @@
+<script type="text/javascript">
+/**
+ * 自定义js脚本
+ */
+
+
+/** 
+ *   页面图片的宽度修改代码..
+ *   ![-w300](xxxx.jpg) 这样的markdown标签，hexo解析出来是img src='' alt='-w300'
+ *   可以从alt中提取出
+**/
+(function(){
+	var nodeArticle = document.getElementsByTagName("article")[0];
+	if (nodeArticle != undefined) {
+		imgs = nodeArticle.getElementsByTagName("img");
+		for(var i = 0; i < imgs.length; i++){
+		    img 	= imgs[i];
+		    width   = parseInt(img.getAttribute("alt").replace("-w", ""));
+		    if(width > 0){
+		        img.setAttribute("style", "width:" + width  + "px");
+		    }
+		} 
+	}    
+})();
+</script>

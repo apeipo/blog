@@ -1,7 +1,7 @@
 ---
 title: swool2.0 协程
 date: 2017-02-09 20:42:22
-tags: [PHP]
+tags: [PHP, Swoole]
 category: PHP
 ---
 
@@ -47,12 +47,20 @@ Reactor更强调的是**注册-回调**，应用于高效率IO。
 个人理解，协程是应用层对异步IO的一种实现，封装了异步IO的回调、上下文切换等过程。
 
 ### swoole的协程处理
-在swoole中使用自带协程的client进行io时，swoole会保存当前的上下文信息（保存在swoole开辟的栈内），然后将协程挂起等待返回。
+在swoole中使用自带协程的client，在进行io此操作时（如connect，query），swoole会保存当前的上下文信息保存在swoole开辟的栈内，然后将协程挂起等待返回。
 io完成后，触发epool事件，协程切换，恢复上下文，继续执行php代码。
 从处理流程可以看出，协程的实现是语言层面的实现，在操作系统中并没有这个概念，而进程和线程是操作系统级别的，其调度和上下文切换是由操作系统对外提供的api实现的。
 
 ### swoole2.0协程使用和性能测试
-测试代码：
+#### 开启协程：
+
+```sh
+phpize
+./configure --with-php-config={path-to-php-config}  --enable-coroutine
+make && make install
+```
+注意：**目前只支持在onRequet, onReceive, onConnect事件回调函数中使用协程。**
+#### 测试代码：
 
 ```php
 $server = new Swoole\Http\Server('127.0.0.1', 9501);
@@ -61,6 +69,7 @@ $swooleDb = new swoole_mysql;
 $server->set([
      'worker_num' => 1,
 ]);
+/*触发on request事件时，SWOOLE会开辟一个协程栈，对协程栈进行初始化*/
 $server->on('Request', function ($request, $response) use ($dbConn, $swooleDb){
     $style = $request->get["style"];
     //传统方式，同步阻塞IO
@@ -87,6 +96,11 @@ $server->on('Request', function ($request, $response) use ($dbConn, $swooleDb){
     //协程方式, swoole 2.0
     if ($style == "coroutine") {
         $swoole_mysql = new Swoole\Coroutine\MySQL();
+      /**
+        client在调用connect函数后，SWOOLE会将PHP上下文信息保存到当前栈内
+        然后将协程挂起，待确认连接成功后，触发epoll事件，然后协程切换
+        恢复PHP上下文信息，返回结果，继续执行PHP代码
+      */
         $swoole_mysql->connect([
             'host' => '127.0.0.1',
             'user' => 'root',
@@ -139,7 +153,7 @@ Shortest transaction:            1.00
 **可以看到，单个线程处理耗时为1s的程序，传统处理方式的只能达到1qps，而协程方式能达到6qps**
 swoole2之前提供的异步客户端和协程本质上没有区别，都是异步IO Reactor模型，所以没有进行性能测试。
 相比于老的异步客户端的各种回调，从代码上可以看出来，协程的方式大大降低了代码的复杂度。
-注意：**协程组件只能在服务器的onConnect、onRequest、onReceive、onMessage 回调函数中使用。**
+注意：**协程组件只能在服务器的onConnect、onRequest、onReceive、onMessage 回调函数中使用。因为只有这些函数中swoole才会创建协程。**
 
 ### 其他客户端的使用
 [2.0.5使用示例](https://wiki.swoole.com/wiki/page/672.html)
@@ -149,4 +163,6 @@ swoole2之前提供的异步客户端和协程本质上没有区别，都是异�
 [PHP并发IO编程之路](http://rango.swoole.com/archives/508)
 [高性能IO模型](http://www.cnblogs.com/fanzhidongyzby/p/4098546.html)
 [Reactor模型](http://www.cnblogs.com/ivaneye/p/5731432.html)
+[epool](http://blog.csdn.net/mango_song/article/details/42643971)
+
 
