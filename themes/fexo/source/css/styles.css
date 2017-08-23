@@ -552,6 +552,9 @@ body {
   font-family: 'Roboto', Verdana, sans-serif;
   min-height: 100%;
   background: #fff;
+  background-image: url(/images/white-bg.gif);
+  background-repeat: repeat;
+  background-color: #FFFDFA;
   -webkit-font-smoothing: antialiased; }
 
 * {
@@ -956,7 +959,7 @@ table {
 .page-header {
   position: relative;
   margin-bottom: 30px;
-  background: #fff; }
+  background: initial; }
   .page-header .breadcrumb {
     width: 100px;
     font-size: 16px;

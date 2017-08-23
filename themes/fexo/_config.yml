@@ -10,7 +10,7 @@ avatar: /images/bayern.jpg
 favicon: /favicon.ico
 
 # For seo
-keywords: PHP,前端开发,JavaScript,测试开发
+keywords: PHP,前端开发,JavaScript,测试开发,Python
 
 init_page_content: POST  # HOME_NAV | POST
 
@@ -63,7 +63,7 @@ about:
     - "测试开发"
     - "2012.7 - 2015.3 @百度"
     - "2015.4 - Now    @滴滴"
-    - "PHP / JavaScript."
+    - "PHP / JavaScript / Python / Go."
   - type: Github
     icon: icon-github
     text_key: Github

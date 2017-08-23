@@ -3,7 +3,9 @@ body {
   font-family: 'Roboto', Verdana, sans-serif;
   min-height: 100%;
   background: #fff;
-
+  background-image: url(/images/white-bg.gif);
+  background-repeat: repeat;
+  background-color: #FFFDFA;
   -webkit-font-smoothing: antialiased;
 }
 * {
