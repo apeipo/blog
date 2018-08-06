@@ -10,7 +10,7 @@ avatar: /images/bayern.jpg
 favicon: /favicon.ico
 
 # For seo
-keywords: PHP,后端开发,Python,Golang,Go
+keywords: PHP,前端开发,JavaScript,测试开发,Python
 
 init_page_content: POST  # HOME_NAV | POST
 
@@ -27,7 +27,6 @@ page_nav:
   - 分类: /categories/
   - 标签: /tags/
   - 2017: /2017/03/28/MY-2017/
-  - 2018: /2018/08/06/2018-Target/
   - 友链: /link/
   - 关于: /about/
 # - RSS: /atom.xml
