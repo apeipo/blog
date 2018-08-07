@@ -984,16 +984,18 @@ table {
       height: 60px;
       vertical-align: middle;
       border-radius: 50%; }
-    .page-header .box-blog-info .info .name {
-      font-family: 'calligraffittiregular';
-      font-size: 24px;
-      font-weight: bold;
-      width: 100px;
-      margin: 0;
-      color: #000; }
-    .page-header .box-blog-info .info .slogan {
-      display: inline-block;
-      color: #999; }
+    .page-header .box-blog-info .info {
+      margin-left: 10px; }
+      .page-header .box-blog-info .info .name {
+        font-family: 'calligraffittiregular';
+        font-size: 24px;
+        font-weight: bold;
+        width: 100px;
+        margin: 0;
+        color: #000; }
+      .page-header .box-blog-info .info .slogan {
+        display: inline-block;
+        color: #999; }
 
 @media screen and (min-width: 768px) {
   .page-header {
