@@ -36,7 +36,7 @@ category: [NOTE]
 
 ## 2017-04-01 从日志统计到大数据分析
 [原文链接](https://zhuanlan.zhihu.com/p/20477493?columnSlug=sangwf)
-![](http://7xrhmq.com1.z0.glb.clouddn.com/2017-05-19-14909389945639.jpg)
+![](https://longlog-1300108443.cos.ap-beijing.myqcloud.com/before2019/2017-05-19-14909389945639.jpg)
 
 不管是推进公司的日志采集结构化，还是提供更强大的查询引擎，都是在尝试把这条流建设的更好。
 
@@ -60,7 +60,7 @@ ETL（Extract-Transform-Load）是对对数据进行抽取、变换和加载的�
 [分析case](https://zhuanlan.zhihu.com/p/20512931?columnSlug=sangwf)
 **数据分析的最终目的是数据驱动产品**
 ### 数据系统的架构
-![](http://7xrhmq.com1.z0.glb.clouddn.com/2017-05-19-14909466663411.jpg)
+![](https://longlog-1300108443.cos.ap-beijing.myqcloud.com/before2019/2017-05-19-14909466663411.jpg)
 横向为上文说的数据流，纵向包含三个重要的系统：调度系统、监控系统、元数据系统。
 调度器的核心功能：一是定时器；二是优化资源利用，特别是任务优先级的控制；三是管理任务依赖关系
 ### 元数据

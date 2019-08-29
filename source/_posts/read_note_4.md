@@ -8,14 +8,14 @@ category: [NOTE]
 原文链接：[新浪微博升级PHP7](http://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&mid=2650994868&idx=1&sn=c79e0217ce2b3454c654fa9d90212d09&chksm=bdbf00e78ac889f11e65c4cbbcb9ea903b65422da93e61936e7badc828aa98d9df5460a0f3d7&scene=21#wechat_redirect)
 原生的PHP，Zend引擎将php代码编译成opcode，再解释执行（执行C语言级的函数）。
 HHVM替代了sZend引擎，PHP代码编译成字节码后，直接解释成机器的机器码执行。
-![](http://7xrhmq.com1.z0.glb.clouddn.com/2017-03-28-14906944807555.jpg)
+![](https://longlog-1300108443.cos.ap-beijing.myqcloud.com/before2019/2017-03-28-14906944807555.jpg)
 
 ### 代码升级
 1. 一些Fatal可以通过catch Error进行捕获。
 2. 被0除，PHP7之前会产生WARNING并返回false，PHP7会返回+INF（正无穷），-INF（负无穷），INF（0/0）
 3. 取模0时，PHP7之前产生WARNING，PHP7抛出 DivisionByZeroError 异常
 4. 警告级别变更
-![](http://7xrhmq.com1.z0.glb.clouddn.com/2017-03-28-14906967611663.jpg)
+![](https://longlog-1300108443.cos.ap-beijing.myqcloud.com/before2019/2017-03-28-14906967611663.jpg)
 
 ...其他参考原文
 

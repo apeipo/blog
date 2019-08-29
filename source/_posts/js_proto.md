@@ -40,7 +40,7 @@ alert(Foo.__proto__ === Foo.prototype); //output: false
 alert(Foo.__proto__ === Function.prototype); //output: true
 ```
 
-![](http://7xrhmq.com1.z0.glb.clouddn.com/2016-03-03-14525824622530.jpg)
+![](https://longlog-1300108443.cos.ap-beijing.myqcloud.com/before2019/2016-03-03-14525824622530.jpg)
 
 ## 对象创建过程
 JS中只有函数对象具备类的概念，因此要创建一个对象，必须使用函数对象。

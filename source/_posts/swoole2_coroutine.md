@@ -34,9 +34,9 @@ category: PHP
 2. **异步非阻塞IO，实际上并不是真正的异步，因为程序接收的事件是：可读 or 可写，实际的读写操作都是需要应用自己完成（从socket读取）**。
 3. **完成的异步IO实现是Proactor模式，程序接收的事件是： 读取完成 or 写入完成了，读写操作由系统完成，应用从缓冲区读取**。
 
-Reactor结构图：![](http://7xrhmq.com1.z0.glb.clouddn.com/2017-02-10-14867149196922.jpg)
+Reactor结构图：![](https://longlog-1300108443.cos.ap-beijing.myqcloud.com/before2019/2017-02-10-14867149196922.jpg)
 
-Reactor时序图：![](http://7xrhmq.com1.z0.glb.clouddn.com/2017-02-10-14867149572894.jpg)
+Reactor时序图：![](https://longlog-1300108443.cos.ap-beijing.myqcloud.com/before2019/2017-02-10-14867149572894.jpg)
 
 #### Reactor和观察者模式的区别
 观察者模式是一种一对多的**发布-订阅**的关系，更多应用于消息的分发。

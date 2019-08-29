@@ -78,7 +78,7 @@ array(2) { ["newname"]=> string(4) "hehe" ["name"]=> string(4) "hehe" }
   }
 ```
 此时再打印GET参数会发现`QUERY_String`中不带着name参数了，nginx官网的描述：
-![](http://7xrhmq.com1.z0.glb.clouddn.com/2016-04-15-14607165697950.jpg)
+![](https://longlog-1300108443.cos.ap-beijing.myqcloud.com/before2019/2016-04-15-14607165697950.jpg)
 
 
 

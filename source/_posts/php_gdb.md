@@ -108,7 +108,7 @@ fck();
 >执行gdb后，死循环的进程会变成T的状态，表示正在Trace。这个是独占的，所以不能再使用strace/gdb或者其他ptrace工具对此进程进行调试。另外此进程会中断执行
 
 执行如下图，可以看到，该进程正在执行的是test.php的fck方法
-![](http://7xrhmq.com1.z0.glb.clouddn.com/2016-03-28-14591791052029.jpg)
+![](https://longlog-1300108443.cos.ap-beijing.myqcloud.com/before2019/2016-03-28-14591791052029.jpg)
 
 另外，php的源码根目录有提供.gdbinit文件，是一个gdb的脚本，封装了上诉过程，在gdb中source该文件后使用zbacktrace可以直接看到当前执行函数、文件名和行数。
 

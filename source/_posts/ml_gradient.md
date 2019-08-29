@@ -27,17 +27,17 @@ z'(x) = 2x ; z'(y) = 2y。令z'(x)和z'(y)等于0，可以解方程得到z(x, y)
 
 ### 梯度下降步骤
 例如对于单变量线性回归（theta0 + theta1 * x）的损失函数：
-![-w300](http://7xrhmq.com1.z0.glb.clouddn.com/2017-06-14-14974242248427.jpg)
+![-w300](https://longlog-1300108443.cos.ap-beijing.myqcloud.com/before2019/2017-06-14-14974242248427.jpg)
 其梯度下降的方法：
 (1)先确定向下一步的步伐大小，称为Learning rate；
 (2)任意给定一个初始值：theta0, theta1；
 (3)确定一个向下的方向，并向下走预先规定的步伐，并更新；
 (4)当下降的高度小于某个定义的值，则停止下降；
-![-w392](http://7xrhmq.com1.z0.glb.clouddn.com/2017-06-14-14974243096274.jpg)
+![-w392](https://longlog-1300108443.cos.ap-beijing.myqcloud.com/before2019/2017-06-14-14974243096274.jpg)
 ### 注意点
 1. 初始点不同，获得的最小值也不同，因此梯度下降求得的只是局部最小值
 2. 降的步伐大小非常重要，因为如果太小，则找到函数最小值的速度就很慢，如果太大，有可能呈之字型下降。如图：
-![-w200](http://7xrhmq.com1.z0.glb.clouddn.com/2017-06-14-14974245759806.jpg)
+![-w200](https://longlog-1300108443.cos.ap-beijing.myqcloud.com/before2019/2017-06-14-14974245759806.jpg)
 3. 如果Learning rate取值后发现J function 增长了，则需要减小Learning rate的值。
 4. 梯度下降是通过不停的迭代，为了减少迭代次数，因此引入了Feature Scaling（**特征标准化**），使得取值范围**大致**都在-1<=x<=1之间。
 
@@ -49,20 +49,20 @@ z'(x) = 2x ; z'(y) = 2y。令z'(x)和z'(y)等于0，可以解方程得到z(x, y)
 ### BGD（批量梯度下降）
 最原始的梯度下降方法， 每次迭代时都使用所有的样本来进行更新。
 对于上文中线性回归的损失函数，对每个变量求偏导后可以得出梯度下降的变化式：
-![-w300](http://7xrhmq.com1.z0.glb.clouddn.com/2017-06-14-14974267407348.jpg)
+![-w300](https://longlog-1300108443.cos.ap-beijing.myqcloud.com/before2019/2017-06-14-14974267407348.jpg)
 可以看出，每次参数的迭代，都需要全体的样本参与。由于是全体参与迭代，参数稳定收敛，但是在训练集很大时，训练效率会非常低。
 	
 ### SGD（随机梯度下降）
 [维基百科](https://en.wikipedia.org/wiki/Stochastic_gradient_descent)
 利用单个样本来进行迭代，解决样本量大时BGD迭代速度慢的问题。
 如上文，将线性回归的损失函数进行转换：
-![-w400](http://7xrhmq.com1.z0.glb.clouddn.com/2017-06-14-14974280777979.jpg)
+![-w400](https://longlog-1300108443.cos.ap-beijing.myqcloud.com/before2019/2017-06-14-14974280777979.jpg)
 这个式子可以解释为，整体的损失可以拆解为单个样本的损失之和，如果能将单个样本的损失减小，则总的损失也会减小（**减小单个样本的损失来逼近总体损失的极小值**）。
 **可以将SGD理解样本全集只有1个时的BGD。**
 对单个样本的cost函数求偏导后得出theta的变化式：
-![-w300](http://7xrhmq.com1.z0.glb.clouddn.com/2017-06-14-14974284080883.jpg)
+![-w300](https://longlog-1300108443.cos.ap-beijing.myqcloud.com/before2019/2017-06-14-14974284080883.jpg)
 SGD每次迭代只有一个样本参与，因此可以大大增加迭代速度，提升训练速度。但是由于每次迭代都是局部进行，迭代比较"盲目"。学习过程，目标函数可能会存在波动：
-![-w200](http://7xrhmq.com1.z0.glb.clouddn.com/2017-06-14-14974298909255.png)
+![-w200](https://longlog-1300108443.cos.ap-beijing.myqcloud.com/before2019/2017-06-14-14974298909255.png)
 SGD 收敛过程中的波动，可能会帮助目标函数跳入另一个可能的更小的极小值，但是也有可能跳出原来全局的极小值。
 #### SGD和BGD的伪代码
 

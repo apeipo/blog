@@ -10,7 +10,7 @@ date: 2017-04-6 12:18:14
 
 ### 问题
 如下图，线上ssdb集群的耗时随着时间的增长耗时不断增长，最高时达到6.5s
-![](http://7xrhmq.com1.z0.glb.clouddn.com/2017-04-06-14914576091140.jpg)
+![](https://longlog-1300108443.cos.ap-beijing.myqcloud.com/before2019/2017-04-06-14914576091140.jpg)
 
 ### 场景
 1. 线上部署采用的是twemproxy + ssdb的方式。2台proxy下挂4台ssdb 
@@ -37,7 +37,7 @@ PROXY单机最高QPS：10w
 3. 客户端连接使用jedis的pipeline批量请求
 
 ### Proxy测试场景和结果
-![](http://7xrhmq.com1.z0.glb.clouddn.com/2017-04-06-14914492594626.jpg)
+![](https://longlog-1300108443.cos.ap-beijing.myqcloud.com/before2019/2017-04-06-14914492594626.jpg)
 ### 分析
 1. 提高server_connection对性能的影响明显，在线下环境下，设置为15**提升约1倍的性能**（对比场景11和场景9）
 2. 修改启动的-m选项，**提升性能约10%**（对比场景13和12）
@@ -55,16 +55,16 @@ Twemproxy存储request数据使用的最小单位，默认为16M。当并发高�
 ## 效果
 在线上修改了server_connection和mbuf参数后，耗时下降明显，接近ssdb的极限性能。
 
-![](http://7xrhmq.com1.z0.glb.clouddn.com/2017-04-06-14914517106043.jpg)
+![](https://longlog-1300108443.cos.ap-beijing.myqcloud.com/before2019/2017-04-06-14914517106043.jpg)
 
 ## 其他测试
 ### Redis替换SSDB能否提升性能?
 可以看出，redis对ssdb的性能提升不明显。原因是测试中读取的都是热数据，ssdb的读取都是内存操作，和redis读取的差别不大。
-![](http://7xrhmq.com1.z0.glb.clouddn.com/2017-04-06-14914518753097.jpg)
+![](https://longlog-1300108443.cos.ap-beijing.myqcloud.com/before2019/2017-04-06-14914518753097.jpg)
 ### 使用get/set能否提升性能?
 将存储数据进行转换，测试脚本中的hget操作修改为get操作，get的性能相比hget提升约1/3。
 但是改为get后，实际的请求量会增长（如果hash结构中有4个key，则改为get后请求增长4倍），因此修改为get请求对整体并没有帮助。
-![](http://7xrhmq.com1.z0.glb.clouddn.com/2017-04-06-14914521918853.jpg)
+![](https://longlog-1300108443.cos.ap-beijing.myqcloud.com/before2019/2017-04-06-14914521918853.jpg)
 
 ### Proxy的数量多少合适？
 从结果数据来看：
@@ -74,7 +74,7 @@ Twemproxy存储request数据使用的最小单位，默认为16M。当并发高�
 
 所以，2：1的话能使性能最大化，但是比较浪费资源，1：1是合理的方案。
 实际线上部署时，一台机器可以部署2~4个proxy，线下在单台机器部署3个proxy时，在100并发每次2000数据的情况下，影响CPU-IDLE约5，网卡占用约15%。
-![](http://7xrhmq.com1.z0.glb.clouddn.com/2017-04-06-14914520378195.jpg)
+![](https://longlog-1300108443.cos.ap-beijing.myqcloud.com/before2019/2017-04-06-14914520378195.jpg)
 
 
 

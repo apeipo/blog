@@ -121,7 +121,7 @@ public function onClose(swoole_server $server, int $fd, int $reactorId) {
 
 1. 同一个server\_fd(53)接收到了两份数据，两份数据来自同一个client\_fd(22)
 2. 第一个task向客户端发送数据成功了，但是第二个发送失败（sendRes：false）
-![](http://7xrhmq.com1.z0.glb.clouddn.com/2017-04-10-14918263781334.jpg)
+![](https://longlog-1300108443.cos.ap-beijing.myqcloud.com/before2019/2017-04-10-14918263781334.jpg)
 实际打印出数据（在onReceive中），会发现客户端发送的数据被拆成了两份，因此触发了两次onReceive。
 第二个task中sendRes失败，是因为在处理第一份数据时，task中已经把客户端连接给关闭了。
 

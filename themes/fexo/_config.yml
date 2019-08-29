@@ -26,10 +26,10 @@ page_nav:
   - 首页: /
   - 分类: /categories/
   - 标签: /tags/
-  - 2017: /2017/03/28/MY-2017/
-  - 2018: /2018/08/06/2018-Target/
   - 友链: /link/
   - 关于: /about/
+# - 2017: /2017/03/28/MY-2017/
+# - 2018: /2018/08/06/2018-Target/
 # - RSS: /atom.xml
 
 page_nav_style: CIRCLE  # CIRCLE|ROUND_RECT
