@@ -2,12 +2,17 @@
 title: Go-Module实践
 tags: [Golang]
 category: [后端]
-date: 2018-10-18 12:00:14
+date: 2019-01-02 12:00:14
 ---
 go1.11版本的一大变化是新增了go-module支持，简化go项目的依赖管理。目前go-module的资料较少，只能通过`go help mod` 和 `go help modules`看一些简单的介绍。
 
 本篇文章通过创建和发布一个lib并在项目中使用它来实践go-modules的版本管理有什么不同
 ## 准备
+### go环境准备
+1. go-module要求go使用**1.11**以上版本，
+2. 执行`export GO111MODULE=on`开启go-module模式
+
+### lib环境
 先简单看下要发布的lib代码，比较简单，获取任意map类型的key并以数组（用interface包装）的形式返回
 git仓库为：`github.com/apeipo/go-mapkeys`
 ```go
@@ -34,6 +39,7 @@ func MapKeys(m interface{}) interface{} {
 }
 ```
 ## 创建go-module
+
 ```go
 git clone github.com/apeipo/go-mapkeys
 cd go-mapkeys
@@ -46,6 +52,8 @@ module github.com/apeipo/go-mapkeys
 ```
 
 注意：**go-mapkeys不能放在GOPATH路径下**，否则会报错。这一点官方的说法是**未来GOPATH可能会取消**，不希望Go的开发者总是理解不了为什么模块需要放到GOPATH下。
+
+如果提示`go: modules disabled inside GOPATH/src by GO111MODULE=auto`，则执行`export GO111MODULE=on`，因为在auto模式下不会自动生成go.mod文件。
 ### 版本
 创建好module后，需要给module加上版本以便其他模块使用。
 go-module的版本遵循语义化版本标准[semver](https://semver.org/)，并且通过github的tag对版本进行控制，给mapkeys模块创建一个版本：
@@ -121,7 +129,7 @@ git tag v1.0.1
 git push --tags
 ```
 #### 使用方更新
-适用方可以通过以下三种方式进行依赖的小版本更新，假设初始版本位`1.0.0`，三种方式的更新策略如下：
+使用方可以通过以下三种方式进行依赖的小版本更新，假设初始版本位`1.0.0`，三种方式的更新策略如下：
 ```sh
 $ go get -u       //更新为最近的minor或者patch版本，如1.0.0会被更新为1.0.1或者1.1.0（存在的话）
 $ go get -u=patch //更新为最近的patch版本，1.0.0会更新为1.0.1但是不会更新为1.1.0
@@ -240,6 +248,10 @@ replace (
 )
 ```
 需要注意的是，replace只对go.mod所在模块生效。例如A模块依赖B模块，B模块中使用了replace，对A模块的下载时不生效的。
+#### GOPROXY
+也可以使用GOPROXY，具体的proxy地址可以网上搜刮
+`export GOPROXY=http://goproxy.xxxx.com`
+
 ## 总结
 1. go-mod的使用极其简单，不管是对于服务提供者还是调用方来说，基本上`go mod init`+`go get`就搞定了一切。
 2. 和其他依赖管理最大的区别在于不同Major版本认为是不同的模块。（这一点上不知道实践中反响如何，从上面的实践来看，major版本无法直接升级，需要修改代码中的import路径）
