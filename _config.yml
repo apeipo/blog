@@ -76,5 +76,6 @@ theme: fexo
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: https://github.com/apeipo/apeipo.github.io.git
+  ## repository: https://github.com/apeipo/apeipo.github.io.git
+  repository: git@github.com:apeipo/apeipo.github.io.git
   branch: master
