@@ -1,6 +1,6 @@
 ---
 title: Golang内存模型
-tags: [Golang，内存]
+tags: [Golang,内存]
 category: [后端]
 date: 2018-09-12 12:12:14
 ---
